@@ -72,3 +72,18 @@ router.post('/exams', (req, res) => {
     exams.push(newExam);
     res.status(201).json(newExam);
 });
+router.put('/exams/:id', (req, res) => {
+    const { id } = req.params;
+    const { name, date } = req.body;
+
+    const exam = exams.find(exam => exam.id === parseInt(id));
+    if (!exam) {
+        return res.status(404).json({ error: "Exam not found" });
+    }
+
+    if (name) exam.name = name;
+    if (date) exam.date = date;
+
+    res.json(exam);
+    //new push
+});
