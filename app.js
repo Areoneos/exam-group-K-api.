@@ -23,3 +23,52 @@ router.get('/exams', (req, res) => {
 });
 
 module.exports = router;
+
+
+router.post('/exams', (req, res) => {
+    const { name, date } = req.body;
+    if (!name || !date) {
+        return res.status(400).json({ error: "Name and date are required" });
+    }
+
+    const newExam = {
+        id: exams.length + 1,
+        name,
+        date
+    };
+
+    exams.push(newExam);
+    res.status(201).json(newExam);
+});
+
+router.post('/exams', (req, res) => {
+    const { name, date } = req.body;
+    if (!name || !date) {
+        return res.status(400).json({ error: "Name and date are required" });
+    }
+
+    const newExam = {
+        id: exams.length + 1,
+        name,
+        date
+    };
+
+    exams.push(newExam);
+    res.status(201).json(newExam);
+});
+
+router.post('/exams', (req, res) => {
+    const { name, date } = req.body;
+    if (!name || !date) {
+        return res.status(400).json({ error: "Name and date are required" });
+    }
+
+    const newExam = {
+        id: exams.length + 1,
+        name,
+        date
+    };
+
+    exams.push(newExam);
+    res.status(201).json(newExam);
+});
